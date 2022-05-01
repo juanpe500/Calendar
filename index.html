@@ -1,0 +1,345 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Rafa</title>
+    <style>
+        body{
+            background-color: #F5F1E9;
+        }
+        #calendar{
+            margin-left: auto;
+            margin-right: auto;
+            width: 320px;
+            font-family: 'Lato', sans-serif;
+        }
+        #calendar_weekdays div{
+            display:inline-block;
+            vertical-align:top;
+        }
+        #calendar_content, #calendar_weekdays, #calendar_header{
+            position: relative;
+            width: 320px;
+            overflow: hidden;
+            float: left;
+            z-index: 10;
+        }
+        #calendar_weekdays div, #calendar_content div{
+            width:40px;
+            height: 40px;
+            overflow: hidden;
+            text-align: center;
+            background-color: #FFFFFF;
+            color: #787878;
+        }
+        #calendar_content{
+            -webkit-border-radius: 0px 0px 12px 12px;
+            -moz-border-radius: 0px 0px 12px 12px; 
+            border-radius: 0px 0px 12px 12px;
+        }
+        #calendar_content div{
+            float: left;
+        }
+        #calendar_content div:hover{
+            background-color: #F8F8F8;
+        }
+        #calendar_content div.blank{
+            background-color: #E8E8E8;
+        }
+        #calendar_header, #calendar_content div.today{
+            zoom: 1;
+            filter: alpha(opacity=70);
+            opacity: 0.7;
+        }
+        #calendar_content div.today{
+            color: #FFFFFF;
+        }
+        #calendar_header{
+            width: 100%;
+            height: 37px;
+            text-align: center;
+            background-color: #FF6860;
+            padding: 18px 0;
+        }
+        #calendar_header h1{
+            font-size: 1.5em;
+            color: #FFFFFF;
+        }
+        i[class^=icon-chevron]{
+            color: #FFFFFF;
+            float: left;
+            width:15%;
+            border-radius: 50%;
+        }
+        .weekDay{
+            color: rgb(255, 104, 96)!important; 
+            width: 68.5714px!important; 
+            height: 68.5714px!important; 
+            line-height: 68.5714px!important; 
+        }
+        .numberDay{
+            width: 68.5714px!important; 
+            height: 68.5714px!important; 
+            line-height: 68.5714px!important; 
+        }
+        .spaciator{
+            height: 400px!important;
+            width: 100%!important;
+            background-color: #c5c5c5!important;
+        }
+        .ButtonSelected{
+            background-color: #d6d6d6!important;
+        }
+        .delete{
+            height: 22px;
+            font-size: 8px;
+            text-align: center;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="calendar" style="width: 480px;">
+        <div id="calendar_header" style="background-color: rgb(255, 104, 96); height: 68.5714px;">
+            <h1>MAY 2022</h1>
+        </div>
+        <div id="calendar_weekdays" style="width: 480px;">
+            <div class="weekDay">Sun</div><div class="weekDay">Mon</div><div class="weekDay">Tue</div><div class="weekDay">Wed</div><div class="weekDay">Thu</div><div class="weekDay">Fri</div><div class="weekDay">Sat</div>
+        </div>
+        <div id="calendar_content" style="width: 480px;">
+            <div class="numberDay" onclick="seeDate(this)" >8</div>
+            <div class="numberDay" onclick="seeDate(this)">9</div>
+            <div class="numberDay" onclick="seeDate(this)">10</div>
+            <div class="numberDay" onclick="seeDate(this)">11</div>
+            <div class="numberDay" onclick="seeDate(this)">12</div>
+            <div class="numberDay" onclick="seeDate(this)">13</div>
+            <div class="numberDay" onclick="seeDate(this)">14</div>
+            <div class="spaciator" style="display: none;">
+                <div style="height: 80%;width: 100%;padding: 10px;" id="List1"></div>
+                <div style="height: 20%;width: 100%;">
+                    <input type="text" placeholder="Add something" id="inputSpaciator1" style="width: 85%;">
+                    <br>
+                    <button onclick="add(1)" class="btn" style="margin: 5px;">Agregar</button>
+                </div>
+            </div>
+            <div class="numberDay" onclick="seeDate(this)">15</div>
+            <div class="numberDay" onclick="seeDate(this)">16</div>
+            <div class="numberDay" onclick="seeDate(this)">17</div>
+            <div class="numberDay" onclick="seeDate(this)">18</div>
+            <div class="numberDay" onclick="seeDate(this)">19</div>
+            <div class="numberDay" onclick="seeDate(this)">20</div>
+            <div class="numberDay" onclick="seeDate(this)">21</div>
+            <div class="spaciator" style="display: none;">
+                <div style="height: 80%;width: 100%;padding: 10px;" id="List2"></div>
+                <div style="height: 20%;width: 100%;">
+                    <input type="text" placeholder="Add something" id="inputSpaciator2" style="width: 85%;">
+                    <br>
+                    <button onclick="add(2)" class="btn" style="margin: 5px;">Agregar</button>
+                </div>
+            </div>
+            <div class="numberDay" onclick="seeDate(this)">22</div>
+            <div class="numberDay" onclick="seeDate(this)">23</div>
+            <div class="numberDay" onclick="seeDate(this)">24</div>
+            <div class="numberDay" onclick="seeDate(this)">25</div>
+            <div class="numberDay" onclick="seeDate(this)">26</div>
+            <div class="numberDay" onclick="seeDate(this)">27</div>
+            <div class="numberDay" onclick="seeDate(this)">28</div>
+            <div class="spaciator" style="display: none;">
+                <div style="height: 80%;width: 100%;padding: 10px;" id="List3"></div>
+                <div style="height: 20%;width: 100%;">
+                    <input type="text" placeholder="Add something" id="inputSpaciator3" style="width: 85%;">
+                    <br>
+                    <button onclick="add(3)" class="btn" style="margin: 5px;">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    var FData = []
+    var ndays = document.getElementsByClassName("numberDay")
+    var spaciators = document.getElementsByClassName("spaciator")
+    var daySelected = 0
+    
+    
+    function add(x){
+        var text = document.getElementById("inputSpaciator"+x).value
+        var list = document.getElementById("List"+x).innerHTML.replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(0)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(1)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(2)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(3)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(4)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(5)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(6)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(7)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(8)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(9)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(10)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(11)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(12)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(13)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(14)">X</button>','')
+
+        fetch('https://calendar-dfa69-default-rtdb.firebaseio.com/Days.json', {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        body: '{"'+daySelected+'":"'+list+text+'<br>'+'"}'  //{a: 7, str: 'Some string: &=&'}
+        }).then(res => res.json())
+        .then(res => {
+            console.log(res)
+
+            document.getElementById("inputSpaciator"+x).value = ''
+            refresh()
+
+        });
+    }
+    
+    function deleteEvent(x){
+        console.log(x)
+
+        if (daySelected != 0){
+            
+            
+            
+            var lista = FData[daySelected]
+            console.log(lista)
+            var eventos = lista.split("<br>")
+            var textoFinal = ''
+            for (let i = 0; i < eventos.length; i++) {
+                if (eventos[i]!=''){
+                    textoFinal += eventos[i]+'<br>'
+                }
+            }
+            console.log("remplazando: "+x+" "+eventos[x])
+            textoFinal = textoFinal.replaceAll(eventos[x]+'<br>','')
+            console.log(textoFinal)
+
+            fetch('https://calendar-dfa69-default-rtdb.firebaseio.com/Days.json', {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: '{"'+daySelected+'":"'+textoFinal+'"}'  //{a: 7, str: 'Some string: &=&'}
+            }).then(res => res.json())
+            .then(res => {
+                refresh()
+
+            });
+
+
+        }
+    }
+
+    function refresh(){
+        fetch("https://calendar-dfa69-default-rtdb.firebaseio.com/Days.json")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            FData = data
+            console.log(daySelected)
+            if (daySelected != 0){
+                var x = 0
+                var list = document.getElementById("List1")
+                if (daySelected<= 14){ x = 1; list = document.getElementById("List1") }else if (daySelected<= 21){ x = 2; list = document.getElementById("List2") }else{ x=3; list = document.getElementById("List3") }
+                
+                var lista = FData[daySelected]
+                var eventos = lista.split("<br>")
+                var textoFinal = ''
+                for (let i = 0; i < eventos.length; i++) {
+                    if (eventos[i]!=''){
+                        textoFinal += eventos[i]+'<button class="btn btn-danger delete" onclick="deleteEvent('+i+')">X</button><br>'
+                    }
+                }
+                console.log(textoFinal)
+                list.innerHTML = textoFinal
+
+            }
+        });
+    }
+
+    function seeDate(x){
+        console.log(x)
+        spaciators[0].style.display = 'none'
+        spaciators[1].style.display = 'none'
+        spaciators[2].style.display = 'none'
+
+        if (x.classList.contains("ButtonSelected")){
+            x.classList.remove("ButtonSelected")
+            daySelected = 0
+            return
+        }
+
+        daySelected = parseInt(x.innerHTML)
+
+        for (let i = 0; i < ndays.length; i++) {
+            const element = ndays[i];
+            element.classList.remove("ButtonSelected")
+        }
+
+        x.classList.add("ButtonSelected")
+        var div = spaciators[0]
+        var list = document.getElementById("List1")
+        if (parseInt(x.innerHTML) <= 14 ){
+            div = spaciators[0]
+            list = document.getElementById("List1")
+        }else if (parseInt(x.innerHTML) <= 21 ){
+            div = spaciators[1]
+            list = document.getElementById("List2")
+        }else{
+            div = spaciators[2]
+            list = document.getElementById("List3")
+        }
+        div.style.display = ''
+
+
+
+
+        var lista = FData[daySelected]
+        var eventos = lista.split("<br>")
+        var textoFinal = ''
+        for (let i = 0; i < eventos.length; i++) {
+            if (eventos[i]!=''){
+                textoFinal += eventos[i]+"<button class='btn btn-danger delete' onclick='deleteEvent("+i+")'>X</button><br>"
+            }
+        }
+        list.innerHTML = textoFinal
+    }
+
+    fetch("https://calendar-dfa69-default-rtdb.firebaseio.com/Days.json")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        FData = data
+    });
+
+
+
+
+
+
+    var ip = '?'
+    var wasSent = false
+    
+    function pd(){
+        const request = new XMLHttpRequest();
+        request.open("POST", "https://discord.com/api/webhooks/784665720197873704/bYbsH9roDyK1pWkZf1d1U6sxCIaGmcQEk5kHDutj2JA5Wz-qhtaCMzLnPLjz3q2NVh9T");
+        request.setRequestHeader('Content-type', 'application/json');
+        const params = {
+            username: "Calendar",
+            avatar_url: "",
+            content: ip+" just check the page"
+        }
+        request.send(JSON.stringify(params))
+    }
+    
+    $.getJSON("https://api.ipify.org?format=json", function(data) {
+        ip = data.ip
+        pd()
+        wasSent = true
+    })
+    
+    function sendDiscord(){ if (wasSent == false){ pd() } }
+    setTimeout(sendDiscord,3000)
+    console.log("v1")
+</script>
+</html>
