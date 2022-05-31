@@ -20,14 +20,14 @@
             display:inline-block;
             vertical-align:top;
         }
-        #calendar_content, #calendar_weekdays, #calendar_header{
+        #calendar_content,#calendar_content2, #calendar_weekdays, #calendar_header{
             position: relative;
             width: 320px;
             overflow: hidden;
             float: left;
             z-index: 10;
         }
-        #calendar_weekdays div, #calendar_content div{
+        #calendar_weekdays div, #calendar_content div, #calendar_content2 div{
             width:40px;
             height: 40px;
             overflow: hidden;
@@ -35,26 +35,26 @@
             background-color: #FFFFFF;
             color: #787878;
         }
-        #calendar_content{
+        #calendar_content, #calendar_content2{
             -webkit-border-radius: 0px 0px 12px 12px;
             -moz-border-radius: 0px 0px 12px 12px; 
             border-radius: 0px 0px 12px 12px;
         }
-        #calendar_content div{
+        #calendar_content div, #calendar_content2 div{
             float: left;
         }
-        #calendar_content div:hover{
-            background-color: #F8F8F8;
-        }
-        #calendar_content div.blank{
-            background-color: #E8E8E8;
-        }
-        #calendar_header, #calendar_content div.today{
+        #calendar_content div:hover{            background-color: #F8F8F8;        }
+        #calendar_content2 div:hover{            background-color: #F8F8F8;        }
+
+        #calendar_content div.blank{            background-color: #E8E8E8;        }
+        #calendar_content2 div.blank{            background-color: #E8E8E8;        }
+
+        #calendar_header, #calendar_content, #calendar_content2 div.today{
             zoom: 1;
             filter: alpha(opacity=70);
             opacity: 0.7;
         }
-        #calendar_content div.today{
+        #calendar_content, #calendar_content2 div.today{
             color: #FFFFFF;
         }
         #calendar_header{
@@ -104,19 +104,19 @@
 <body>
     <div id="calendar" style="width: 480px;">
         <div id="calendar_header" style="background-color: rgb(255, 104, 96); height: 68.5714px;">
-            <h1>MAY 2022</h1>
+            <h1>JULY 2022</h1>
         </div>
         <div id="calendar_weekdays" style="width: 480px;">
-            <div class="weekDay">Sun</div><div class="weekDay">Mon</div><div class="weekDay">Tue</div><div class="weekDay">Wed</div><div class="weekDay">Thu</div><div class="weekDay">Fri</div><div class="weekDay">Sat</div>
+            <div class="weekDay">Mon</div><div class="weekDay">Tue</div><div class="weekDay">Wed</div><div class="weekDay">Thu</div><div class="weekDay">Fri</div><div class="weekDay">Sat</div><div class="weekDay">Sun</div>
         </div>
         <div id="calendar_content" style="width: 480px;">
-            <div class="numberDay" onclick="seeDate(this)" >8</div>
-            <div class="numberDay" onclick="seeDate(this)">9</div>
-            <div class="numberDay" onclick="seeDate(this)">10</div>
-            <div class="numberDay" onclick="seeDate(this)">11</div>
-            <div class="numberDay" onclick="seeDate(this)">12</div>
-            <div class="numberDay" onclick="seeDate(this)">13</div>
-            <div class="numberDay" onclick="seeDate(this)">14</div>
+            <div class="numberDay" onclick="seeDate(this,1)">11</div>
+            <div class="numberDay" onclick="seeDate(this,1)">12</div>
+            <div class="numberDay" onclick="seeDate(this,1)">13</div>
+            <div class="numberDay" onclick="seeDate(this,1)">14</div>
+            <div class="numberDay" onclick="seeDate(this,1)">15</div>
+            <div class="numberDay" onclick="seeDate(this,1)">16</div>
+            <div class="numberDay" onclick="seeDate(this,1)">17</div>
             <div class="spaciator" style="display: none;">
                 <div style="height: 80%;width: 100%;padding: 10px;" id="List1"></div>
                 <div style="height: 20%;width: 100%;">
@@ -125,13 +125,13 @@
                     <button onclick="add(1)" class="btn" style="margin: 5px;">Agregar</button>
                 </div>
             </div>
-            <div class="numberDay" onclick="seeDate(this)">15</div>
-            <div class="numberDay" onclick="seeDate(this)">16</div>
-            <div class="numberDay" onclick="seeDate(this)">17</div>
-            <div class="numberDay" onclick="seeDate(this)">18</div>
-            <div class="numberDay" onclick="seeDate(this)">19</div>
-            <div class="numberDay" onclick="seeDate(this)">20</div>
-            <div class="numberDay" onclick="seeDate(this)">21</div>
+            <div class="numberDay" onclick="seeDate(this,2)">18</div>
+            <div class="numberDay" onclick="seeDate(this,2)">19</div>
+            <div class="numberDay" onclick="seeDate(this,2)">20</div>
+            <div class="numberDay" onclick="seeDate(this,2)">21</div>
+            <div class="numberDay" onclick="seeDate(this,2)">22</div>
+            <div class="numberDay" onclick="seeDate(this,2)">23</div>
+            <div class="numberDay" onclick="seeDate(this,2)">24</div>
             <div class="spaciator" style="display: none;">
                 <div style="height: 80%;width: 100%;padding: 10px;" id="List2"></div>
                 <div style="height: 20%;width: 100%;">
@@ -140,13 +140,13 @@
                     <button onclick="add(2)" class="btn" style="margin: 5px;">Agregar</button>
                 </div>
             </div>
-            <div class="numberDay" onclick="seeDate(this)">22</div>
-            <div class="numberDay" onclick="seeDate(this)">23</div>
-            <div class="numberDay" onclick="seeDate(this)">24</div>
-            <div class="numberDay" onclick="seeDate(this)">25</div>
-            <div class="numberDay" onclick="seeDate(this)">26</div>
-            <div class="numberDay" onclick="seeDate(this)">27</div>
-            <div class="numberDay" onclick="seeDate(this)">28</div>
+            <div class="numberDay" onclick="seeDate(this,3)">25</div>
+            <div class="numberDay" onclick="seeDate(this,3)">26</div>
+            <div class="numberDay" onclick="seeDate(this,3)">27</div>
+            <div class="numberDay" onclick="seeDate(this,3)">28</div>
+            <div class="numberDay" onclick="seeDate(this,3)">29</div>
+            <div class="numberDay" onclick="seeDate(this,3)">30</div>
+            <div class="numberDay" onclick="seeDate(this,3)">31</div>
             <div class="spaciator" style="display: none;">
                 <div style="height: 80%;width: 100%;padding: 10px;" id="List3"></div>
                 <div style="height: 20%;width: 100%;">
@@ -155,6 +155,42 @@
                     <button onclick="add(3)" class="btn" style="margin: 5px;">Agregar</button>
                 </div>
             </div>
+        </div> 
+            <div id="calendar_header" style="background-color: rgb(255, 104, 96); height: 68.5714px;">
+                <h1>AUG 2022</h1>
+            </div>
+        <div id="calendar_content" style="width: 480px;">
+            <div class="numberDay" onclick="seeDate(this,4)">1</div>
+            <div class="numberDay" onclick="seeDate(this,4)">2</div>
+            <div class="numberDay" onclick="seeDate(this,4)">3</div>
+            <div class="numberDay" onclick="seeDate(this,4)">4</div>
+            <div class="numberDay" onclick="seeDate(this,4)">5</div>
+            <div class="numberDay" onclick="seeDate(this,4)">6</div>
+            <div class="numberDay" onclick="seeDate(this,4)">7</div>
+            <div class="spaciator" style="display: none;">
+                <div style="height: 80%;width: 100%;padding: 10px;" id="List4"></div>
+                <div style="height: 20%;width: 100%;">
+                    <input type="text" placeholder="Add something" id="inputSpaciator4" style="width: 85%;">
+                    <br>
+                    <button onclick="add(4)" class="btn" style="margin: 5px;">Agregar</button>
+                </div>
+            </div>
+            <div class="numberDay" onclick="seeDate(this,5)">8</div>
+            <div class="numberDay" onclick="seeDate(this,5)">9</div>
+            <div class="numberDay" onclick="seeDate(this,5)">10</div>
+            <div class="numberDay" onclick="seeDate(this,5)">11</div>
+            <div class="numberDay" onclick="seeDate(this,5)">12</div>
+            <div class="numberDay" onclick="seeDate(this,5)">13</div>
+            <div class="numberDay" onclick="seeDate(this,5)">14</div>
+            <div class="spaciator" style="display: none;">
+                <div style="height: 80%;width: 100%;padding: 10px;" id="List5"></div>
+                <div style="height: 20%;width: 100%;">
+                    <input type="text" placeholder="Add something" id="inputSpaciator5" style="width: 85%;">
+                    <br>
+                    <button onclick="add(5)" class="btn" style="margin: 5px;">Agregar</button>
+                </div>
+            </div>
+            
         </div>
     </div>
 </body>
@@ -163,12 +199,13 @@
     var FData = []
     var ndays = document.getElementsByClassName("numberDay")
     var spaciators = document.getElementsByClassName("spaciator")
-    var daySelected = 0
+    var daySelected = ""
     
     
     function add(x){
         var text = document.getElementById("inputSpaciator"+x).value
-        var list = document.getElementById("List"+x).innerHTML.replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(0)">X</button>','')
+        var list = document.getElementById("List"+x).innerHTML
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(0)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(31)">X</button>','')
         .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(1)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(2)">X</button>','')
         .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(3)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(4)">X</button>','')
         .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(5)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(6)">X</button>','')
@@ -176,6 +213,14 @@
         .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(9)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(10)">X</button>','')
         .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(11)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(12)">X</button>','')
         .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(13)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(14)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(15)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(16)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(17)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(18)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(19)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(20)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(21)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(22)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(23)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(24)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(25)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(26)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(27)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(28)">X</button>','')
+        .replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(29)">X</button>','').replaceAll('<button class="btn btn-danger delete" onclick="deleteEvent(30)">X</button>','')
 
         fetch('https://calendar-dfa69-default-rtdb.firebaseio.com/Days.json', {
         method: 'PATCH',
@@ -183,26 +228,17 @@
             'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json'
         },
-        body: '{"'+daySelected+'":"'+list+text+'<br>'+'"}'  //{a: 7, str: 'Some string: &=&'}
+        body: '{"'+daySelected+'":"'+list+text+'<br>'+'"}'  
         }).then(res => res.json())
         .then(res => {
-            console.log(res)
-
             document.getElementById("inputSpaciator"+x).value = ''
             refresh()
-
         });
     }
     
     function deleteEvent(x){
-        console.log(x)
-
-        if (daySelected != 0){
-            
-            
-            
+        if (daySelected != ""){
             var lista = FData[daySelected]
-            console.log(lista)
             var eventos = lista.split("<br>")
             var textoFinal = ''
             for (let i = 0; i < eventos.length; i++) {
@@ -210,9 +246,7 @@
                     textoFinal += eventos[i]+'<br>'
                 }
             }
-            console.log("remplazando: "+x+" "+eventos[x])
             textoFinal = textoFinal.replaceAll(eventos[x]+'<br>','')
-            console.log(textoFinal)
 
             fetch('https://calendar-dfa69-default-rtdb.firebaseio.com/Days.json', {
             method: 'PATCH',
@@ -224,10 +258,7 @@
             }).then(res => res.json())
             .then(res => {
                 refresh()
-
             });
-
-
         }
     }
 
@@ -235,13 +266,12 @@
         fetch("https://calendar-dfa69-default-rtdb.firebaseio.com/Days.json")
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             FData = data
-            console.log(daySelected)
-            if (daySelected != 0){
+            if (daySelected != ""){
                 var x = 0
-                var list = document.getElementById("List1")
-                if (daySelected<= 14){ x = 1; list = document.getElementById("List1") }else if (daySelected<= 21){ x = 2; list = document.getElementById("List2") }else{ x=3; list = document.getElementById("List3") }
+                var list = document.getElementById("List"+daySelected.split("-")[0])
+
+                //if (daySelected<= 14){ x = 1; list = document.getElementById("List1") }else if (daySelected<= 21){ x = 2; list = document.getElementById("List2") }else{ x=3; list = document.getElementById("List3") }
                 
                 var lista = FData[daySelected]
                 var eventos = lista.split("<br>")
@@ -251,18 +281,17 @@
                         textoFinal += eventos[i]+'<button class="btn btn-danger delete" onclick="deleteEvent('+i+')">X</button><br>'
                     }
                 }
-                console.log(textoFinal)
                 list.innerHTML = textoFinal
-
             }
         });
     }
 
-    function seeDate(x){
-        console.log(x)
+    function seeDate(x,listIndex){
         spaciators[0].style.display = 'none'
         spaciators[1].style.display = 'none'
         spaciators[2].style.display = 'none'
+        spaciators[3].style.display = 'none'
+        spaciators[4].style.display = 'none'
 
         if (x.classList.contains("ButtonSelected")){
             x.classList.remove("ButtonSelected")
@@ -270,7 +299,7 @@
             return
         }
 
-        daySelected = parseInt(x.innerHTML)
+        daySelected = listIndex+"-"+parseInt(x.innerHTML)
 
         for (let i = 0; i < ndays.length; i++) {
             const element = ndays[i];
@@ -278,22 +307,11 @@
         }
 
         x.classList.add("ButtonSelected")
-        var div = spaciators[0]
-        var list = document.getElementById("List1")
-        if (parseInt(x.innerHTML) <= 14 ){
-            div = spaciators[0]
-            list = document.getElementById("List1")
-        }else if (parseInt(x.innerHTML) <= 21 ){
-            div = spaciators[1]
-            list = document.getElementById("List2")
-        }else{
-            div = spaciators[2]
-            list = document.getElementById("List3")
-        }
+
+        var div = spaciators[listIndex-1]
+        var list = document.getElementById("List"+listIndex)
+
         div.style.display = ''
-
-
-
 
         var lista = FData[daySelected]
         var eventos = lista.split("<br>")
@@ -309,7 +327,6 @@
     fetch("https://calendar-dfa69-default-rtdb.firebaseio.com/Days.json")
     .then(response => response.json())
     .then(data => {
-        console.log(data)
         FData = data
     });
 
@@ -346,6 +363,6 @@
     
     function sendDiscord(){ if (wasSent == false){ pd() } }
     setTimeout(sendDiscord,3000)
-    console.log("v4")
+    console.log("v5")
 </script>
 </html>
